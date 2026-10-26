@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>05 — Connect Everything | Learn Backend</title>
+    <link rel="stylesheet" href="../assets/player.css" />
+    <script src="../assets/player.js" defer></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="logo" href="../index.html">LB<span>.</span></a>
+      <nav>
+        <a href="../index.html">Dashboard</a
+        ><a href="../index.html#lessons">Lessons</a>
+      </nav>
+    </header>
+
+    <main class="container lesson-main">
+      <section class="lesson-header">
+        <p class="eyebrow">05 / FULL STACK LAB</p>
+        <h1>Everything <span class="gradient">connected.</span></h1>
+        <p class="intro">
+          Create a note, send it through Express, validate it with Mongoose, and
+          save it in MongoDB.
+        </p>
+      </section>
+
+      <section class="lesson-panel">
+        <h2>Follow the request</h2>
+        <pre><code>Browser
+   ↓ HTTP POST /api/notes
+Express route
+   ↓ Note.create(...)
+Mongoose model
+   ↓ Database operation
+MongoDB
+   ↓ Saved document
+Express returns JSON
+   ↓
+Browser displays the result</code></pre>
+      </section>
+
+      <section class="lesson-panel">
+        <p class="eyebrow">LIVE API / EXPERIMENT</p>
+        <h2>Create a note</h2>
+        <p>
+          The form below calls the actual backend. Start the server first, then
+          submit a note.
+        </p>
+
+        <form id="note-form" class="api-form">
+          <input
+            name="title"
+            placeholder="Note title (required)"
+            maxlength="120"
+            required
+          />
+          <textarea
+            name="body"
+            placeholder="Write something to remember..."
+            maxlength="2000"
+            rows="4"
+          ></textarea>
+          <button type="submit">Save note →</button>
+        </form>
+
+        <h3>Saved notes / API response</h3>
+        <button id="refresh-notes" class="button" type="button">
+          Refresh notes
+        </button>
+        <pre id="api-result" class="api-result">Connecting to API...</pre>
+      </section>
+
+      <section class="lesson-panel">
+        <h2>Run the entire stack</h2>
+        <p>From the project root, run:</p>
+        <pre><code>docker compose up --build</code></pre>
+        <p>Then open http://localhost:3000.</p>
+        <p>
+          Stop with Ctrl+C. To stop the services without deleting the saved
+          database, run <code>docker compose down</code>.
+        </p>
+      </section>
+
+      <nav class="lesson-nav">
+        <a href="../04-docker/index.html">← Docker</a>
+        <a href="../index.html">Back to dashboard ↗</a>
+      </nav>
+    </main>
+  </body>
+</html>

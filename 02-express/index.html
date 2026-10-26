@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>02 — Express | Learn Backend</title>
+    <link rel="stylesheet" href="../assets/player.css" />
+    <script src="../assets/player.js" defer></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="logo" href="../index.html">LB<span>.</span></a>
+      <nav>
+        <a href="../index.html">Dashboard</a
+        ><a href="../index.html#lessons">Lessons</a>
+      </nav>
+    </header>
+
+    <main class="container lesson-main">
+      <section class="lesson-header">
+        <p class="eyebrow">02 / ROUTING</p>
+        <h1>Express.js<span class="gradient">.</span></h1>
+        <p class="intro">
+          Build HTTP APIs with routes, middleware and structured responses.
+          Express runs inside your Node.js application.
+        </p>
+      </section>
+
+      <div class="lesson-content">
+        <div>
+          <section class="lesson-panel">
+            <h2>How Express works</h2>
+            <p>
+              A request enters the Express app. Middleware can process it, a
+              route handler performs the requested operation, and a response is
+              sent back to the client.
+            </p>
+            <h3>Key terms</h3>
+            <ul>
+              <li><code>app.get()</code> handles GET requests.</li>
+              <li><code>app.post()</code> handles POST requests.</li>
+              <li><code>req</code> describes the incoming request.</li>
+              <li><code>res</code> sends a response to the client.</li>
+            </ul>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>A small Express API</h2>
+            <pre><code>const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+app.get("/api/hello", (req, res) => {
+  res.json({
+    message: "Hello from Express"
+  });
+});
+
+app.listen(3000, () => {
+  console.log("API started");
+});</code></pre>
+            <p>
+              The JSON middleware parses JSON request bodies. The GET route
+              returns a JSON response.
+            </p>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>What connects next?</h2>
+            <p>
+              Routes often need persistent data. Mongoose provides schemas and
+              models so Express handlers can work with MongoDB.
+            </p>
+          </section>
+        </div>
+
+        <aside>
+          <section class="lesson-panel">
+            <p class="eyebrow">PROJECT FILE</p>
+            <h3>server.js</h3>
+            <p>Our routes include GET /api/notes and POST /api/notes.</p>
+          </section>
+        </aside>
+      </div>
+
+      <nav class="lesson-nav">
+        <a href="../01-nodejs/index.html">← Node.js</a>
+        <a href="../03-mongoose/index.html">Next: Mongoose →</a>
+      </nav>
+    </main>
+  </body>
+</html>

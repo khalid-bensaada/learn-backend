@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>03 — Mongoose | Learn Backend</title>
+    <link rel="stylesheet" href="../assets/player.css" />
+    <script src="../assets/player.js" defer></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="logo" href="../index.html">LB<span>.</span></a>
+      <nav>
+        <a href="../index.html">Dashboard</a
+        ><a href="../index.html#lessons">Lessons</a>
+      </nav>
+    </header>
+
+    <main class="container lesson-main">
+      <section class="lesson-header">
+        <p class="eyebrow">03 / DATABASE</p>
+        <h1>Mongoose<span class="gradient">.</span></h1>
+        <p class="intro">
+          Define your document structure, validate data and communicate with
+          MongoDB through JavaScript models.
+        </p>
+      </section>
+
+      <div class="lesson-content">
+        <div>
+          <section class="lesson-panel">
+            <h2>Schema versus model</h2>
+            <p>
+              A schema defines the fields and validation rules for documents. A
+              model gives you methods to create and query documents.
+            </p>
+            <p>
+              MongoDB stores the data. Mongoose provides the application-facing
+              interface to that data.
+            </p>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>Create a Note model</h2>
+            <pre><code>const mongoose = require("mongoose");
+
+const noteSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  body: {
+    type: String,
+    default: ""
+  }
+}, { timestamps: true });
+
+const Note = mongoose.model("Note", noteSchema);
+
+module.exports = Note;</code></pre>
+            <p>
+              The title is required. Timestamps add createdAt and updatedAt
+              fields automatically.
+            </p>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>Connect to MongoDB</h2>
+            <pre><code>await mongoose.connect(
+  process.env.MONGODB_URI
+);
+
+const note = await Note.create({
+  title: "My first note",
+  body: "Learning backend"
+});
+
+console.log(note);</code></pre>
+            <p>
+              The database URI comes from an environment variable rather than
+              being hard-coded throughout your application.
+            </p>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>What connects next?</h2>
+            <p>
+              The application needs MongoDB to be available. Docker Compose can
+              run both the backend and database in a shared network.
+            </p>
+          </section>
+        </div>
+
+        <aside>
+          <section class="lesson-panel">
+            <p class="eyebrow">DATA FLOW</p>
+            <h3>Express → Mongoose → MongoDB</h3>
+            <p>
+              Routes call model methods, and the model queries the database.
+            </p>
+          </section>
+        </aside>
+      </div>
+
+      <nav class="lesson-nav">
+        <a href="../02-express/index.html">← Express</a>
+        <a href="../04-docker/index.html">Next: Docker →</a>
+      </nav>
+    </main>
+  </body>
+</html>

@@ -1,39 +1,123 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>تعلّم الباك إند</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Backend | Developer Academy</title>
     <link rel="stylesheet" href="assets/player.css" />
+    <script src="assets/player.js" defer></script>
   </head>
   <body>
-    <div class="wrap">
-      <h1>تعلّم الباك إند خطوة بخطوة</h1>
-      <p class="d">
-        كل درس يعمل مثل فيديو قصير. ويبني على الدرس الذي قبله حتى يعمل مشروعك
-        كاملاً داخل Docker.
-      </p>
-      <div class="path">
-        <span>Node.js</span><span>Express</span><span>Mongoose</span
-        ><span>Docker</span><span>مشروع كامل</span>
-      </div>
-      <div class="cards">
-        <a class="card" href="01-nodejs/index.html"
-          ><b>1. Node.js</b>تشغيل JavaScript خارج المتصفح، والوحدات، وnpm</a
-        >
-        <a class="card" href="02-express/index.html"
-          ><b>2. Express</b>إنشاء السيرفر والمسارات وقراءة JSON</a
-        >
-        <div class="card off">
-          <b>3. Mongoose</b>الاتصال بقاعدة MongoDB والنماذج (قريباً)
+    <header class="navbar">
+      <a class="logo" href="index.html">LB<span>.</span></a>
+      <nav>
+        <a href="#architecture">Architecture</a>
+        <a href="#lessons">Lessons</a>
+      </nav>
+      <span class="status"><i></i> INTERACTIVE LAB</span>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <p class="eyebrow">BACKEND DEVELOPMENT / 001</p>
+        <h1>
+          Understand the backend.<br />
+          <span class="gradient">Build something real.</span>
+        </h1>
+        <p class="intro">
+          Explore Node.js, Express, Mongoose and Docker through a slow-motion
+          interactive learning experience.
+        </p>
+        <a class="button" href="01-nodejs/index.html">
+          Start learning <span>↗</span>
+        </a>
+      </section>
+
+      <section id="architecture" class="panel">
+        <p class="eyebrow">LIVE SYSTEM MAP</p>
+        <h2>How everything connects</h2>
+        <p class="muted">
+          Select a technology to highlight its role in the system.
+        </p>
+
+        <div class="architecture">
+          <button class="node blue" data-skill="node">
+            <span>JS</span><strong>Node.js</strong>
+            <small>Runtime</small>
+          </button>
+          <div class="connector" data-link="node-express">→</div>
+
+          <button class="node purple" data-skill="express">
+            <span>↔</span><strong>Express</strong>
+            <small>API routes</small>
+          </button>
+          <div class="connector" data-link="express-mongoose">→</div>
+
+          <button class="node green" data-skill="mongoose">
+            <span>◇</span><strong>Mongoose</strong>
+            <small>Data models</small>
+          </button>
+
+          <div class="connector vertical" data-link="mongoose-mongo">↓</div>
+          <div class="node database">
+            <span>▤</span><strong>MongoDB</strong>
+            <small>Database</small>
+          </div>
+
+          <button class="node cyan docker-node" data-skill="docker">
+            <span>▦</span><strong>Docker</strong>
+            <small>Runs the stack</small>
+          </button>
         </div>
-        <div class="card off">
-          <b>4. Docker</b>تشغيل المشروع داخل حاويات (قريباً)
+
+        <div class="explanation" id="diagram-note">
+          Choose a technology to explore its connections.
         </div>
-        <div class="card off">
-          <b>5. ربط كل شيء</b>مشروع واحد يجمع المهارات الأربع (قريباً)
+      </section>
+
+      <section id="lessons" class="lessons">
+        <p class="eyebrow">YOUR LEARNING PATH</p>
+        <h2>Five stages. One complete backend.</h2>
+
+        <div class="lesson-grid">
+          <a class="lesson-card blue-card" href="01-nodejs/index.html">
+            <span>01 / RUNTIME</span>
+            <h3>Node.js</h3>
+            <p>Run JavaScript outside the browser.</p>
+            <b>Explore Node.js ↗</b>
+          </a>
+
+          <a class="lesson-card purple-card" href="02-express/index.html">
+            <span>02 / ROUTING</span>
+            <h3>Express.js</h3>
+            <p>Build APIs, routes and middleware.</p>
+            <b>Explore Express ↗</b>
+          </a>
+
+          <a class="lesson-card green-card" href="03-mongoose/index.html">
+            <span>03 / DATABASE</span>
+            <h3>Mongoose</h3>
+            <p>Connect models to MongoDB.</p>
+            <b>Explore Mongoose ↗</b>
+          </a>
+
+          <a class="lesson-card cyan-card" href="04-docker/index.html">
+            <span>04 / CONTAINERS</span>
+            <h3>Docker</h3>
+            <p>Package and run your application.</p>
+            <b>Explore Docker ↗</b>
+          </a>
+
+          <a class="lesson-card orange-card" href="05-connect-all/index.html">
+            <span>05 / INTEGRATION</span>
+            <h3>Connect everything</h3>
+            <p>Run the complete backend stack.</p>
+            <b>Open the final lab ↗</b>
+          </a>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <footer>LEARN BACKEND · MOVE SLOW · UNDERSTAND DEEPLY</footer>
+    </main>
   </body>
 </html>

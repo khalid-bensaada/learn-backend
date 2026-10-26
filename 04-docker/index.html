@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>04 — Docker | Learn Backend</title>
+    <link rel="stylesheet" href="../assets/player.css" />
+    <script src="../assets/player.js" defer></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="logo" href="../index.html">LB<span>.</span></a>
+      <nav>
+        <a href="../index.html">Dashboard</a
+        ><a href="../index.html#lessons">Lessons</a>
+      </nav>
+    </header>
+
+    <main class="container lesson-main">
+      <section class="lesson-header">
+        <p class="eyebrow">04 / CONTAINERS</p>
+        <h1>Docker<span class="gradient">.</span></h1>
+        <p class="intro">
+          Package the backend and run it alongside MongoDB in a reproducible
+          environment.
+        </p>
+      </section>
+
+      <div class="lesson-content">
+        <div>
+          <section class="lesson-panel">
+            <h2>Why Docker?</h2>
+            <p>
+              A Docker image contains the application and its runtime setup. A
+              container is a running instance of an image.
+            </p>
+            <p>
+              Docker Compose describes multiple services and connects them using
+              a private network.
+            </p>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>Your Dockerfile</h2>
+            <pre><code>FROM node:22-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install --omit=dev
+
+COPY . .
+
+ENV PORT=3000
+EXPOSE 3000
+
+CMD ["npm", "start"]</code></pre>
+            <p>
+              This builds the Node.js app image. MongoDB will use its own
+              official image, defined in docker-compose.yml.
+            </p>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>Start the containers</h2>
+            <pre><code>docker compose up --build</code></pre>
+            <p>
+              Compose builds the application, starts MongoDB and then starts the
+              app after the database health check passes.
+            </p>
+            <h3>Important detail</h3>
+            <p>
+              Inside Compose, the app connects to
+              <code>mongodb://mongo:27017/learn_backend</code>. The hostname
+              <code>mongo</code> is the database service name.
+            </p>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>What connects next?</h2>
+            <p>
+              The final lesson puts the entire flow together and lets you create
+              real notes through the API.
+            </p>
+          </section>
+        </div>
+
+        <aside>
+          <section class="lesson-panel">
+            <p class="eyebrow">COMPOSE SERVICES</p>
+            <h3>app</h3>
+            <p>Runs Node.js and Express.</p>
+            <h3>mongo</h3>
+            <p>Stores documents and persists them in a named volume.</p>
+          </section>
+        </aside>
+      </div>
+
+      <nav class="lesson-nav">
+        <a href="../03-mongoose/index.html">← Mongoose</a>
+        <a href="../05-connect-all/index.html">Next: Integration →</a>
+      </nav>
+    </main>
+  </body>
+</html>

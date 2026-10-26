@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>01 — Node.js | Learn Backend</title>
+    <link rel="stylesheet" href="../assets/player.css" />
+    <script src="../assets/player.js" defer></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="logo" href="../index.html">LB<span>.</span></a>
+      <nav>
+        <a href="../index.html">Dashboard</a
+        ><a href="../index.html#lessons">Lessons</a>
+      </nav>
+    </header>
+
+    <main class="container lesson-main">
+      <section class="lesson-header">
+        <p class="eyebrow">01 / RUNTIME</p>
+        <h1>Node.js<span class="gradient">.</span></h1>
+        <p class="intro">
+          JavaScript beyond the browser. Node.js runs server-side code, provides
+          built-in modules and keeps your application running.
+        </p>
+      </section>
+
+      <div class="lesson-content">
+        <div>
+          <section class="lesson-panel">
+            <h2>What is Node.js?</h2>
+            <p>
+              Node.js is a JavaScript runtime built on the V8 engine. It
+              provides APIs for networking, files and other system tasks.
+            </p>
+            <h3>Important concepts</h3>
+            <ul>
+              <li>Modules organize code into reusable files.</li>
+              <li>The event loop coordinates asynchronous operations.</li>
+              <li>npm installs and manages project packages.</li>
+            </ul>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>Your first Node.js server</h2>
+            <pre><code>const http = require("node:http");
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, {
+    "Content-Type": "text/plain"
+  });
+
+  res.end("Hello from Node.js!");
+});
+
+server.listen(3000, () => {
+  console.log("Server running on port 3000");
+});</code></pre>
+            <p>
+              Save this example as <code>hello.js</code>, then run
+              <code>node hello.js</code>. Open localhost port 3000.
+            </p>
+          </section>
+
+          <section class="lesson-panel">
+            <h2>What connects next?</h2>
+            <p>
+              Node.js can create an HTTP server directly. Express builds on
+              Node.js and makes routing and middleware easier to manage.
+            </p>
+          </section>
+        </div>
+
+        <aside>
+          <section class="lesson-panel">
+            <p class="eyebrow">REMEMBER</p>
+            <h3>Node.js is not a framework.</h3>
+            <p>It is the runtime that executes your JavaScript backend.</p>
+          </section>
+          <section class="lesson-panel">
+            <p class="eyebrow">PROJECT FILE</p>
+            <h3>server.js</h3>
+            <p>
+              This is where the actual Node.js process starts in our project.
+            </p>
+          </section>
+        </aside>
+      </div>
+
+      <nav class="lesson-nav">
+        <a href="../index.html">← Dashboard</a>
+        <a href="../02-express/index.html">Next: Express →</a>
+      </nav>
+    </main>
+  </body>
+</html>
